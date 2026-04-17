@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { resume } from "@/lib/resume-data";
 import { PrintResumeButton } from "@/components/PrintResumeButton";
 
@@ -47,34 +48,24 @@ export function HeroSection() {
         </div>
 
         <div className="order-1 flex justify-center lg:order-2 lg:justify-end">
-          <div className="relative">
-            <span
+          <div className="relative flex h-64 w-64 items-center justify-center sm:h-72 sm:w-72">
+            <div
               aria-hidden
-              className="pointer-events-none absolute -left-4 top-1/2 hidden -translate-y-1/2 font-mono text-4xl text-[var(--coral)]/30 lg:block"
-            >
-              &gt;
-            </span>
-            <span
+              className="absolute inset-0 rounded-full bg-gradient-to-tr from-[var(--coral)]/40 via-transparent to-[var(--coral)]/20 blur-md"
+            />
+            <div
               aria-hidden
-              className="pointer-events-none absolute -right-2 top-8 hidden font-mono text-3xl text-[var(--coral)]/25 lg:block"
-            >
-              &gt;&gt;
-            </span>
-
-            <div className="relative flex h-64 w-64 items-center justify-center sm:h-72 sm:w-72">
-              <div
-                aria-hidden
-                className="absolute inset-0 rounded-full bg-gradient-to-tr from-[var(--coral)]/40 via-transparent to-[var(--coral)]/20 blur-md"
+              className="absolute inset-2 rounded-full border-2 border-[var(--coral)]/50"
+            />
+            <div className="relative h-56 w-56 overflow-hidden rounded-full border-4 border-[var(--bg-card)] bg-[var(--bg-card)] shadow-2xl ring-4 ring-[var(--coral)]/30 sm:h-64 sm:w-64">
+              <Image
+                src="/profile.png"
+                alt={`Portrait of ${resume.name}`}
+                width={256}
+                height={256}
+                priority
+                className="h-full w-full object-cover object-top"
               />
-              <div
-                aria-hidden
-                className="absolute inset-2 rounded-full border-2 border-[var(--coral)]/50"
-              />
-              <div className="relative flex h-56 w-56 items-center justify-center overflow-hidden rounded-full border-4 border-[var(--bg-card)] bg-gradient-to-br from-[var(--bg-card)] to-[var(--bg)] shadow-2xl ring-4 ring-[var(--coral)]/30 sm:h-64 sm:w-64">
-                <span className="select-none text-5xl font-bold tracking-tight text-white/90 sm:text-6xl">
-                  SN
-                </span>
-              </div>
             </div>
           </div>
         </div>
