@@ -1,14 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f1f5f9;
-  --foreground: #0f172a;
+  --bg: #0f171e;
+  --bg-elevated: #151f2a;
+  --bg-card: #1a2431;
+  --coral: #ff7a5c;
+  --coral-dim: rgba(255, 122, 92, 0.15);
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --border: rgba(148, 163, 184, 0.12);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --color-portfolio-bg: var(--bg);
+  --color-portfolio-elevated: var(--bg-elevated);
+  --color-portfolio-card: var(--bg-card);
+  --color-portfolio-coral: var(--coral);
+  --color-portfolio-muted: var(--muted);
 }
 
 html {
@@ -16,9 +25,14 @@ html {
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--bg);
+  color: var(--text);
   font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--coral-dim);
+  color: var(--text);
 }
 
 @media print {
@@ -29,11 +43,21 @@ body {
 
   body {
     background: #fff !important;
+    color: #0f172a !important;
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
   }
 
-  .print-hidden {
-    display: none !important;
+  .print-only {
+    display: block !important;
   }
+
+  .print-root {
+    background: #fff !important;
+    color: #0f172a !important;
+  }
+}
+
+.print-only {
+  display: none;
 }

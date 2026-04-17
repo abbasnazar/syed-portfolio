@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin"],
   display: "swap",
 });
@@ -11,7 +11,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Syed Nazar Abbas Kazmi — Tech Lead & AI Engineer",
   description:
-    "Resume — Tech Lead / AI Engineer. Scalable cloud-native platforms, NLP, microservices, AWS & GCP.",
+    "Portfolio — Tech Lead / AI Engineer. AI recruitment at scale, cloud-native systems, NLP, AWS & GCP.",
 };
 
 export default function RootLayout({
@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full scroll-smooth antialiased`}>
+    <html lang="en" className={`${jakarta.variable} h-full scroll-smooth antialiased`}>
       <head>
         <link
           rel="stylesheet"
@@ -29,9 +29,7 @@ export default function RootLayout({
           referrerPolicy="no-referrer"
         />
       </head>
-      <body className="min-h-full text-slate-900">
-        {children}
-      </body>
+      <body className="min-h-full bg-[var(--bg)] text-[var(--text)]">{children}</body>
     </html>
   );
 }

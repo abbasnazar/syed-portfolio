@@ -1,5 +1,50 @@
+/** One-line tech stack for the hero strip (reference-style). */
+export const techStrip = [
+  "Python",
+  "TypeScript",
+  "JavaScript",
+  "Node.js",
+  "React",
+  "Next.js",
+  "AWS",
+  "GCP",
+  "Docker",
+  "Kubernetes",
+  "Redis",
+  "TensorFlow",
+  "PyTorch",
+  "Git",
+  "GitHub",
+] as const;
+
+export const services = [
+  {
+    title: "AI & NLP platforms",
+    description: "LLMs, RAG, resume parsing, ranking, and MLOps on GCP.",
+    icon: "fa-solid fa-brain",
+  },
+  {
+    title: "Cloud & microservices",
+    description: "High-throughput async workflows, AWS & GCP, Redis, distributed systems.",
+    icon: "fa-solid fa-cloud",
+  },
+  {
+    title: "Full-stack product delivery",
+    description: "Architecture through deployment — Angular, React, Next.js, Node.",
+    icon: "fa-solid fa-code",
+  },
+] as const;
+
+export const headlineStats = [
+  { value: "10+", label: "Years of experience" },
+  { value: "8K+", label: "Resumes processed / day" },
+  { value: "~30%", label: "Engineering productivity lift" },
+] as const;
+
 export const resume = {
   name: "Syed Nazar Abbas Kazmi",
+  shortBrand: "Syed Kazmi",
+  heroFirstName: "Syed",
   title: "TECH LEAD | AI PRODUCT ENGINEER | SCALABLE SYSTEMS ARCHITECT",
   location: "Noida, India",
   phone: "+91-8433233486",
