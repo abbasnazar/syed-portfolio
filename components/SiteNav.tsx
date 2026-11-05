@@ -7,12 +7,26 @@ import { useEffect, useState } from "react";
 const links = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
+  { href: "#impact", label: "Impact" },
   { href: "#projects", label: "Projects" },
+  { href: "#experience", label: "Experience" },
+  { href: "#skills", label: "Skills" },
   { href: "#contacts", label: "Contacts" },
 ] as const;
 
 export function SiteNav() {
   const [open, setOpen] = useState(false);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(h > 0 ? (window.scrollY / h) * 100 : 0);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -22,11 +36,16 @@ export function SiteNav() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--bg)]/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--bg)]/70 backdrop-blur-xl">
+      <div
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 h-px origin-left bg-gradient-to-r from-[var(--accent)] to-[var(--accent-2)]"
+        style={{ transform: `scaleX(${progress / 100})` }}
+      />
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link
           href="#home"
-          className="text-lg font-bold tracking-tight text-white transition hover:text-[var(--coral)]"
+          className="text-lg font-bold tracking-tight text-white transition hover:text-[var(--accent-2)]"
           onClick={() => setOpen(false)}
         >
           {resume.shortBrand}

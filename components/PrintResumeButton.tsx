@@ -5,9 +5,9 @@ export function PrintResumeButton() {
     <button
       type="button"
       onClick={() => window.print()}
-      className="inline-flex h-12 items-center justify-center rounded-lg border-2 border-[var(--coral)] bg-transparent px-8 text-sm font-semibold text-[var(--coral)] transition hover:bg-[var(--coral)]/10"
+      className="glass inline-flex h-12 items-center justify-center gap-2 rounded-xl px-7 text-sm font-semibold text-white transition hover:border-[var(--accent-2)]/60"
     >
-      My resume
+      <i className="fa-solid fa-download text-xs" aria-hidden /> Resume
     </button>
   );
 }

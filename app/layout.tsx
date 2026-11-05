@@ -9,9 +9,9 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Syed Nazar Abbas Kazmi — Tech Lead & AI Engineer",
+  title: "Syed Nazar Abbas Kazmi — AI Engineering Lead",
   description:
-    "Portfolio — Tech Lead / AI Engineer. AI recruitment at scale, cloud-native systems, NLP, AWS & GCP.",
+    "AI Engineering Lead — Generative AI & LLM applications, full-stack architecture, AI-powered SaaS. 10+ years, JobMojo.ai, GCP & AWS.",
 };
 
 export default function RootLayout({

@@ -1,10 +1,12 @@
 "use client";
 
 import { resume } from "@/lib/resume-data";
+import { Reveal } from "@/components/Reveal";
+import { SectionHeading } from "@/components/SectionHeading";
 
 function ProjectLogo({ domain, icon }: { domain: string; icon: string }) {
   return (
-    <span className="mb-4 flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl bg-[var(--coral-dim)] text-xl text-[var(--coral)] ring-1 ring-[var(--coral)]/20 transition group-hover:scale-105">
+    <span className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl bg-white/5 text-xl text-[var(--accent-2)] ring-1 ring-white/10">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={`https://www.google.com/s2/favicons?domain=${domain}&sz=64`}
@@ -24,30 +26,35 @@ function ProjectLogo({ domain, icon }: { domain: string; icon: string }) {
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="scroll-mt-20 border-t border-[var(--border)] bg-[var(--bg-elevated)]/50 px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+    <section id="projects" className="scroll-mt-20 border-y border-[var(--border)] bg-[var(--bg-elevated)]/60 px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
       <div className="mx-auto max-w-6xl">
-        <h2 className="mb-4 text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">Projects</h2>
-        <p className="mx-auto mb-12 max-w-2xl text-center text-sm text-[var(--muted)] sm:text-base">
-          Selected products and platforms I&apos;ve architected, built, or scaled end-to-end.
-        </p>
-
-        <ul className="grid gap-6 md:grid-cols-3">
-          {resume.projects.map((p) => (
-            <li key={p.name}>
-              <a
-                href={p.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex h-full flex-col rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] p-6 transition hover:border-[var(--coral)]/40 hover:shadow-lg hover:shadow-[var(--coral)]/5"
-              >
-                <ProjectLogo domain={p.logoDomain} icon={p.icon} />
-                <h3 className="text-lg font-bold text-white">{p.name}</h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-[var(--muted)]">{p.desc}</p>
-                <span className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[var(--coral)]">
-                  Featured
-                  <i className="fa-solid fa-arrow-right text-[10px] transition group-hover:translate-x-0.5" aria-hidden />
-                </span>
-              </a>
+        <SectionHeading eyebrow="work" title="Featured projects" sub="Products and platforms I've architected, built or scaled end-to-end." />
+        <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {resume.projects.map((p, i) => (
+            <li key={p.name} className={p.featured ? "lg:col-span-2 lg:row-span-1" : ""}>
+              <Reveal delay={(i % 3) * 80} className="h-full">
+                <a
+                  href={p.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`glass card-hover group flex h-full flex-col rounded-3xl p-6 ${
+                    p.featured ? "bg-gradient-to-br from-[var(--accent)]/15 to-[var(--accent-2)]/5" : ""
+                  }`}
+                >
+                  <div className="mb-5 flex items-start justify-between">
+                    <ProjectLogo domain={p.logoDomain} icon={p.icon} />
+                    <i
+                      className="fa-solid fa-arrow-up-right-from-square text-xs text-[var(--muted)] transition group-hover:text-[var(--accent-2)]"
+                      aria-hidden
+                    />
+                  </div>
+                  <span className="mb-2 font-mono text-[0.65rem] font-semibold uppercase tracking-widest text-[var(--accent-2)]">
+                    {p.tag}
+                  </span>
+                  <h3 className="text-xl font-bold text-white">{p.name}</h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-[var(--muted)]">{p.desc}</p>
+                </a>
+              </Reveal>
             </li>
           ))}
         </ul>

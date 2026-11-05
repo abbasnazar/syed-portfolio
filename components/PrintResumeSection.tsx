@@ -10,7 +10,11 @@ export function PrintResumeSection() {
         {resume.location} · {resume.phone} · {resume.email}
       </p>
       <h2 className="mt-6 border-b border-slate-300 pb-1 text-sm font-bold uppercase">Summary</h2>
-      <p className="mt-2 text-xs leading-relaxed">{resume.summary}</p>
+      {resume.summary.map((t) => (
+        <p key={t} className="mt-2 text-xs leading-relaxed">
+          {t}
+        </p>
+      ))}
       <h2 className="mt-4 border-b border-slate-300 pb-1 text-sm font-bold uppercase">Experience</h2>
       <ul className="mt-2 space-y-3 text-xs">
         {resume.experience.map((j) => (
@@ -19,7 +23,7 @@ export function PrintResumeSection() {
               {j.role} — {j.company} ({j.period})
             </p>
             <ul className="mt-1 list-disc pl-4">
-              {j.bullets.map((b) => (
+              {j.groups.flatMap((g) => g.bullets).map((b) => (
                 <li key={b}>{b}</li>
               ))}
             </ul>
