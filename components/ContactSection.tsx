@@ -5,6 +5,7 @@ const items = [
   { icon: "fa-solid fa-envelope", label: "Email", value: resume.email, href: resume.emailHref },
   { icon: "fa-solid fa-phone", label: "Phone", value: resume.phone, href: resume.phoneHref },
   { icon: "fa-brands fa-linkedin-in", label: "LinkedIn", value: resume.linkedIn.label, href: resume.linkedIn.href },
+  { icon: "fa-brands fa-github", label: "GitHub", value: resume.github.label, href: resume.github.href },
   { icon: "fa-solid fa-location-dot", label: "Location", value: resume.location, href: undefined },
 ];
 
@@ -28,7 +29,7 @@ export function ContactSection() {
           </p>
 
           <div className="relative mt-10 grid gap-3 text-left sm:grid-cols-2">
-            {items.map((c) => {
+            {items.map((c, i) => {
               const inner = (
                 <>
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[var(--accent)]/15 text-[var(--accent-2)]">
@@ -40,7 +41,7 @@ export function ContactSection() {
                   </div>
                 </>
               );
-              const cls = "flex items-center gap-4 rounded-2xl border border-[var(--border)] bg-white/[0.03] p-4 transition";
+              const cls = `flex items-center gap-4 rounded-2xl border border-[var(--border)] bg-white/[0.03] p-4 transition${items.length % 2 && i === items.length - 1 ? " sm:col-span-2" : ""}`;
               return c.href ? (
                 <a key={c.label} href={c.href} className={`${cls} hover:border-[var(--accent)]/60 hover:bg-white/[0.06]`}>
                   {inner}

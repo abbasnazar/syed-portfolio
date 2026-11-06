@@ -146,7 +146,7 @@ body {
 
 @media print {
   @page {
-    margin: 0.6cm;
+    margin: 0;
     size: A4;
   }
 
