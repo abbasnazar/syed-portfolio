@@ -72,8 +72,8 @@ AI Engineering & Generative AI · LLM Application Development · Machine Learnin
 - **[TotalRecall.ai](https://totalrecall.ai)** — AI document processing & management platform on AWS
 - **[Zyvraa](https://www.zyvraa.com)** — Hospital Management Information System (React + Node.js) digitizing healthcare and medical store operations
 - **[ZEST by ZYVRAA](https://zest.zyvraa.com)** — SEO-optimized pre-rendered React catalogue with Directus headless CMS, automated rebuilds and Docker/Caddy deployment with auto HTTPS
-- **Roadster Relics** — automobile marketplace in React with mobile app integrations
-- **Craft Marble** — e-commerce with payment integration & live inventory management
+- **[Roadster Relics](https://roadsterrelics.com)** — automobile marketplace in React with mobile app integrations
+- **[Craft Marble](https://craftmarble.com)** — e-commerce with payment integration & live inventory management
 
 ## Portfolio Site
 
